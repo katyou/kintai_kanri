@@ -1,0 +1,11 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title IJGN-kintaikanri
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.js"}
+    = javascript_include_tag 'application'
+  %body
+    = yield
