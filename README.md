@@ -1,9 +1,9 @@
 # README
 
 ## インストール
-'''
+''
 $ git clone git@github.com:IJGN/LifeLabel.git
-'''
+''
 '''
 $ bundle install --path vendor/bundle
 '''
