@@ -1,0 +1,19 @@
+.sign_in_box
+  %h2 Kanri_system_Login
+
+  = form_for(:session, url: login_path, class: "kanri_system_sessions_form") do |f|
+    .input-field
+      .field
+        = f.label :email
+        %span
+          (半角英数字)
+        %br/
+        = f.email_field :email, class: 'form-control'
+      .field
+        = f.label :password
+        %span
+          (半角英数字)
+        %br/
+        = f.password_field :password, class: 'form-control'
+      .actions
+        = f.submit "ログイン"
