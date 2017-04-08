@@ -12,4 +12,6 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
   has_secure_password
+
+  enum status: {admin: 1, staff: 2, part_time: 3}
 end

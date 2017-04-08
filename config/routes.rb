@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   resources :work_times, only: [:index, :show, :new, :edit]
 
   resources :users
-  root to: 'users#index'
 
   resources :work_times, only: [:index] do
     collection do
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
       get 'get_prev_month'
     end
   end
+  root to: 'work_times#index'
 
   #sessions controller
   get    'login' , to: 'sessions#new'

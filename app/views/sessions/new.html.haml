@@ -1,5 +1,5 @@
 .sign_in_box
-  %h2 Kanri_system_Login
+  %h2 ログイン
 
   = form_for(:session, url: login_path, class: "kanri_system_sessions_form") do |f|
     .input-field
@@ -16,4 +16,4 @@
         %br/
         = f.password_field :password, class: 'form-control'
       .actions
-        = f.submit "ログイン"
+        = f.submit "ログイン", class: `btn btn-default`
