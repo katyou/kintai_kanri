@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
-  get 'work_kanri/index'
-
-  get 'work_kanri/show'
-
-  get 'work_kanri/new'
-
-  get 'work_kanri/edit'
+  #add kalender app
+  resources :work_times, only: [:index, :show, :new, :edit]
 
   resources :users
   root to: 'users#index'
@@ -17,11 +12,10 @@ Rails.application.routes.draw do
     end
   end
 
-
   #sessions controller
   get    'login' , to: 'sessions#new'
   post   'login' , to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 
-  
+
 end
