@@ -1,4 +1,5 @@
 class WorkTimesController < ApplicationController
+  before_action :logged_in_user
   before_action :set_work_time, only: [:show, :edit, :update, :destroy]
 
   def index
