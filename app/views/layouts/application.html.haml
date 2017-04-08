@@ -8,8 +8,13 @@
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.js"}
     = javascript_include_tag 'application'
   %body
-    = render partial: 'layouts/header'
-    .col-md-3
-      = render partial: 'layouts/subnav'
-    .col-md-9
+    %header
+      .header_wrapper
+        .header_contents
+          .header_title
+            IJGN 管理システム
+          = render partial: 'layouts/header'
+    .contents_wrapper
+      %p.notice= notice
+      %p.alert= alert
       = yield

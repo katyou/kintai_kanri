@@ -1,5 +1,5 @@
-%header
-  .title_header イジゲンシステム管理
-  - if logged_in?
-    .header_content=link_to "#{current_user.name}", user_path(current_user), class: "header_fonts"
-    .header_content=link_to "ログアウト", logout_path, method: "delete", class: "header_fonts"
+- if logged_in?
+  .header_content=link_to "#{current_user.name}", user_path(current_user), class: "header_fonts"
+  .header_content=link_to "ログアウト", logout_path, method: "delete", class: "header_fonts"
+- else
+  .header_content=link_to "ログイン", login_path, class: "header_fonts"
