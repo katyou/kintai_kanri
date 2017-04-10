@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title IJGN-勤怠管理システム
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all'
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.js"}
+    = javascript_include_tag 'application'
+  %body
+    %header
+      .header_wrapper
+        .header_contents
+          .header_title
+            IJGN 管理システム
+          = render partial: 'layouts/header'
+    .contents_wrapper
+      %p.notice= notice
+      %p.alert= alert
+      = yield

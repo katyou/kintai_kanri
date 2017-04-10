@@ -1,0 +1,2 @@
+module WorkKanriHelper
+end

@@ -1,0 +1,25 @@
+%h1= I18n.l @month_first, format: :only_month
+
+%table
+  %thead
+    %tr
+      -@weaks.each do |wday|
+        %th{align: 'center'}
+          %table
+            %tr
+              %td= wday
+
+  %tbody
+    -@month_first.wday.times do |empty_cell|
+      %td
+    - (@month_first..@month_last).each do |day|
+      -# 改行するためにtrを挿入 wday=6になったら改行…っていう処理にしたいけど他に良い方法ないかな
+      - if day.wday == 0
+        %tr
+      %td{align: 'right'}
+        %table
+          %tr
+            %td=day.day
+        -# %td= link_to 'Show', work_time
+        -# %td= link_to 'Edit', edit_work_time_path(work_time)
+        -# %td= link_to 'Destroy', work_time, :method => :delete, :data => { :confirm => 'Are you sure?' }
