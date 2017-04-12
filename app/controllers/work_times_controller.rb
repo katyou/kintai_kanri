@@ -9,6 +9,20 @@ class WorkTimesController < ApplicationController
     #NOTE Timeクラス、DateTimeクラスでeachをするとcan't iterate..とエラー
     @month_first= current_time.beginning_of_month.to_date
     @month_last= current_time.end_of_month.to_date
+    logger.debug @month_last
+  end
+
+  def get_next_month
+    @work_time =  WorkTime.all
+    current_month = params[:current_month].to_date
+    @month_first = current_month.next_month.beginning_of_month
+    @month_last = @month_first.end_of_month
+    render partial: '/work_times/display_calender', locals: { month_first: @month_first, month_last: @month_last }
+  end
+
+  def get_prev_month
+    @work_time =  WorkTime.all
+    render partial: '/work_times/display_calender', locals: { month_first: @month_first, month_last: @month_last }
   end
 
   def show

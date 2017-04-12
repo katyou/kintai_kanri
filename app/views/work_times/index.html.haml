@@ -1,5 +1,8 @@
 %h1= I18n.l @month_first, format: :only_month
 
+%span#prev-month.btn.btn-sm.btn-default prev
+%span#next-month.btn.btn-sm.btn-default next
+
 %table
   %thead
     %tr
@@ -9,17 +12,31 @@
             %tr
               %td= wday
 
-  %tbody
-    -@month_first.wday.times do |empty_cell|
-      %td
-    - (@month_first..@month_last).each do |day|
-      -# 改行するためにtrを挿入 wday=6になったら改行…っていう処理にしたいけど他に良い方法ないかな
-      - if day.wday == 0
-        %tr
-      %td{align: 'right'}
-        %table
-          %tr
-            %td=day.day
-        -# %td= link_to 'Show', work_time
-        -# %td= link_to 'Edit', edit_work_time_path(work_time)
-        -# %td= link_to 'Destroy', work_time, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %tbody.display_work_times
+  -# 来月の表示はされるが項目が少ない
+    =render partial: '/work_times/display_calender', locals: { month_first: @month_first, month_last: @month_last }
+
+:javascript
+  $(document).on('click', '#next-month', function(){
+    $.ajax({
+      type: 'GET',
+      url: '/work_times/get_next_month',
+      data: {
+        current_user_id : "#{current_user.id}",
+        current_month : "#{@month_first}"
+      }
+    }).done(function(data){
+    $('.display_work_times').html(data);
+    });
+  });
+
+  $(document).on('click', '#prev-month', function(){
+    //$.ajax({
+    //  type: 'GET',
+    //  url: '/work_times/get_prev_months',
+    //  data: {
+    //    current_user_id : "#{current_user.id}",
+    //    current_month : "#{@month_first}"
+    //  }
+    //});
+  });

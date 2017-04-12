@@ -1,0 +1,10 @@
+-month_first.wday.times do |empty_cell|
+  %td
+- (month_first..month_last).each do |day|
+  -# 改行するためにtrを挿入 wday=6になったら改行…っていう処理にしたいけど他に良い方法ないかな
+  - if day.wday == 0
+    %tr
+  %td{align: 'right'}
+    %table
+      %tr
+        %td=day.day
