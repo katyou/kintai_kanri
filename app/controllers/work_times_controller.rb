@@ -5,24 +5,25 @@ class WorkTimesController < ApplicationController
   def index
     @work_times = WorkTime.all
     current_time = Time.now
-    @weaks = %w(日 月 火 水 木 金 土)
     #NOTE Timeクラス、DateTimeクラスでeachをするとcan't iterate..とエラー
     @month_first= current_time.beginning_of_month.to_date
     @month_last= current_time.end_of_month.to_date
-    logger.debug @month_last
   end
 
   def get_next_month
     @work_time =  WorkTime.all
     current_month = params[:current_month].to_date
     @month_first = current_month.next_month.beginning_of_month
-    @month_last = @month_first.end_of_month
-    render partial: '/work_times/display_calender', locals: { month_first: @month_first, month_last: @month_last }
+    @month_last = current_month.next_month.end_of_month
+    render 'result_display_calender'
   end
 
   def get_prev_month
     @work_time =  WorkTime.all
-    render partial: '/work_times/display_calender', locals: { month_first: @month_first, month_last: @month_last }
+    current_month = params[:current_month].to_date
+    @month_first = current_month.prev_month.beginning_of_month
+    @month_last = current_month.prev_month.end_of_month
+    render 'result_display_calender'
   end
 
   def show

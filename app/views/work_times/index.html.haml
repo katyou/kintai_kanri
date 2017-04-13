@@ -1,42 +1,9 @@
-%h1= I18n.l @month_first, format: :only_month
+%h1.heading-month= I18n.l @month_first, format: :only_month
 
-%span#prev-month.btn.btn-sm.btn-default prev
-%span#next-month.btn.btn-sm.btn-default next
+.trigger-prev
+  =link_to 'prev', get_prev_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
+.trigger-next
+  =link_to 'next', get_next_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
 
-%table
-  %thead
-    %tr
-      -@weaks.each do |wday|
-        %th{align: 'center'}
-          %table
-            %tr
-              %td= wday
-
-  %tbody.display_work_times
-  -# 来月の表示はされるが項目が少ない
-    =render partial: '/work_times/display_calender', locals: { month_first: @month_first, month_last: @month_last }
-
-:javascript
-  $(document).on('click', '#next-month', function(){
-    $.ajax({
-      type: 'GET',
-      url: '/work_times/get_next_month',
-      data: {
-        current_user_id : "#{current_user.id}",
-        current_month : "#{@month_first}"
-      }
-    }).done(function(data){
-    $('.display_work_times').html(data);
-    });
-  });
-
-  $(document).on('click', '#prev-month', function(){
-    //$.ajax({
-    //  type: 'GET',
-    //  url: '/work_times/get_prev_months',
-    //  data: {
-    //    current_user_id : "#{current_user.id}",
-    //    current_month : "#{@month_first}"
-    //  }
-    //});
-  });
+.display_work_times
+  =render partial: '/work_times/display_calender'
