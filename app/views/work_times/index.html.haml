@@ -1,25 +1,9 @@
-%h1= I18n.l @month_first, format: :only_month
+%h1.heading-month= I18n.l @month_first, format: :only_month
 
-%table
-  %thead
-    %tr
-      -@weaks.each do |wday|
-        %th{align: 'center'}
-          %table
-            %tr
-              %td= wday
+.trigger-prev
+  =link_to 'prev', get_prev_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
+.trigger-next
+  =link_to 'next', get_next_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
 
-  %tbody
-    -@month_first.wday.times do |empty_cell|
-      %td
-    - (@month_first..@month_last).each do |day|
-      -# 改行するためにtrを挿入 wday=6になったら改行…っていう処理にしたいけど他に良い方法ないかな
-      - if day.wday == 0
-        %tr
-      %td{align: 'right'}
-        %table
-          %tr
-            %td=day.day
-        -# %td= link_to 'Show', work_time
-        -# %td= link_to 'Edit', edit_work_time_path(work_time)
-        -# %td= link_to 'Destroy', work_time, :method => :delete, :data => { :confirm => 'Are you sure?' }
+.display_work_times
+  =render partial: '/work_times/display_calender'
