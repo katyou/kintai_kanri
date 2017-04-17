@@ -1,7 +1,7 @@
-%h1 Editing work_time
+%h2 勤怠情報の編集
 
 = render 'form'
 
-= link_to 'Show', @work_time
+= link_to '前の画面に戻る', [:user, @work_time], class: "btn btn-default"
 \|
-= link_to 'Back', work_times_path
+= link_to 'カレンダー一覧に戻る', user_work_times_path(params[:user_id]), class: "btn btn-default"

@@ -19,6 +19,6 @@
   ="#{@work_time.rest_time.strftime("%H時間%M分")}"
 
 
-= link_to 'Edit', edit_user_work_time_path(params[:user_id], @work_time), class: "btn btn-primary"
+= link_to "編集画面", edit_user_work_time_path(params[:user_id], @work_time), class: "btn btn-primary"
 \|
-= link_to 'Back', user_work_times_path(params[:user_id]), class: "btn btn-default"
+= link_to "戻る", user_work_times_path(params[:user_id]), class: "btn btn-default"

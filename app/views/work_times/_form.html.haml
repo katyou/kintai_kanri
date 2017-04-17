@@ -1,10 +1,22 @@
-= form_for @work_time do |f|
+= form_for [:user, @work_time] do |f|
   - if @work_time.errors.any?
     #error_explanation
       %h2= "#{pluralize(@work_time.errors.count, "error")} prohibited this work_time from being saved:"
       %ul
         - @work_time.errors.full_messages.each do |msg|
           %li= msg
+  = f.label :start_time
+  = f.text_field :start_time, class: "form-control"
+
+  = f.label :finish_time
+  = f.text_field :finish_time, class: "form-control"
+  = f.hidden_field :user_id
+
+  = f.label :work_time
+  = f.text_field :work_time, class: "form-control"
+
+  = f.label :rest_time
+  = f.text_field :rest_time, class: "form-control"
 
   .actions
-    = f.submit 'Save'
+    = f.submit '保存', class: "btn btn-primary"
