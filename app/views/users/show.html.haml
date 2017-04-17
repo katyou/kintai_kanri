@@ -3,13 +3,17 @@
 
 %h2 最近の勤怠情報
 
-- @work_times.each do |work_time|
-  %p
-    %b 始業時間
-    .time_calender= work_time.start_time.strftime("%m月%d日%H時%M分")
-    %b 終業時間
-    .time_calender= work_time.finish_time.strftime("%m月%d日%H時%M分")
-    %b 勤務時間
-    .time_calender= work_time.work_time.strftime("%H時%M分")
-    %b 休憩時間
-    .time_calender=work_time.rest_time.strftime("%H時%M分")
+%table.table
+  %thead
+    %tr
+      %th 始業時間
+      %th 終業時間
+      %th 勤務時間
+      %th 休憩時間
+  %tbody
+    - @work_times.each do |work_time|
+      %tr
+        %th= work_time.start_time.strftime("%m月%d日%H時%M分")
+        %td= work_time.finish_time.strftime("%m月%d日%H時%M分")
+        %td= work_time.work_time.strftime("%H時%M分")
+        %td= work_time.rest_time.strftime("%H時%M分")

@@ -1,17 +1,18 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @user.name
-  %b Email:
-  = @user.email
-  -if current_user.id == params[:id]
-    %b Password:
-    = @user.password
-  %b Status:
-  = @user.status
-  %b カード情報
-  = @user.card_id
+.edit_box
+  %p
+    %b.users_show 名前:
+    = @user.name
+  %p
+    %b.users_show メールアドレス:
+    = @user.email
+  %p
+    %b.users_show ユーザー権限:
+    = @user.status
+  %p
+    %b.users_show カード情報:
+    = @user.card_id
 
-= link_to '編集', edit_user_path(@user), class: "btn btn-default"
+= link_to '編集', edit_user_path(@user), class: "btn btn-primary"
 = link_to '戻る', users_path, class: "btn btn-default"
