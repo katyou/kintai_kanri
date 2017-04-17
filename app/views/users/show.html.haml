@@ -1,18 +1,15 @@
-%p#notice= notice
+.display_show_users
+  = render "personal"
 
-%p
-  %b Name:
-  = @user.name
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Password:
-  = @user.password
-%p
-  %b Status:
-  = @user.status
+%h2 最近の勤怠情報
 
-= link_to 'Edit', edit_user_path(@user), class: "btn btn-primary"
-\|
-= link_to 'Back', users_path, class: "btn btn-default"
+- @work_times.each do |work_time|
+  %p
+    %b 始業時間
+    .time_calender= work_time.start_time.strftime("%m月%d日%H時%M分")
+    %b 終業時間
+    .time_calender= work_time.finish_time.strftime("%m月%d日%H時%M分")
+    %b 勤務時間
+    .time_calender= work_time.work_time.strftime("%H時%M分")
+    %b 休憩時間
+    .time_calender=work_time.rest_time.strftime("%H時%M分")

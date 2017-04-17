@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @user.name
+  %b Email:
+  = @user.email
+  -if current_user.id == params[:id]
+    %b Password:
+    = @user.password
+  %b Status:
+  = @user.status
+  %b カード情報
+  = @user.card_id
+
+= link_to '編集', edit_user_path(@user), class: "btn btn-default"
+= link_to '戻る', users_path, class: "btn btn-default"
