@@ -1,8 +1,8 @@
 $('.heading-month').text("<%=I18n.l @month_first, format: :only_month %>");
 $('.display_work_times').html("<%=j(render 'display_calender') %>");
 $('.trigger-next').html(`
-<%=link_to 'next', get_next_month_work_times_path(current_month: @month_first), remote: true, class: 'trigger-next btn btn-sm btn-primary' %>
+<%=link_to 'next', get_next_month_user_work_times_path(current_month: @month_first), remote: true, class: 'trigger-next btn btn-sm btn-primary' %>
 `);
 $('.trigger-prev').html(`
-<%=link_to 'prev', get_prev_month_work_times_path(current_month: @month_first), remote: true, class: 'trigger-next btn btn-sm btn-default' %>
+<%=link_to 'prev', get_prev_month_user__work_times_path(current_month: @month_first), remote: true, class: 'trigger-next btn btn-sm btn-default' %>
 `);
