@@ -11,18 +11,18 @@ class WorkTimesController < ApplicationController
   end
 
   def get_next_month
-    @work_time =  WorkTime.all
     current_month = params[:current_month].to_date
     @month_first = current_month.next_month.beginning_of_month
     @month_last = current_month.next_month.end_of_month
+    @work_times = WorkTime.get_user(current_user)
     render 'result_display_calender'
   end
 
   def get_prev_month
-    @work_time =  WorkTime.all
     current_month = params[:current_month].to_date
     @month_first = current_month.prev_month.beginning_of_month
     @month_last = current_month.prev_month.end_of_month
+    @work_times = WorkTime.get_user(current_user)
     render 'result_display_calender'
   end
 
