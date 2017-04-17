@@ -1,6 +1,24 @@
-%p#notice= notice
+%h2= "#{@work_time.start_time.strftime("%m月%d日")}の勤怠情報"
+
+.kintai_show_menu
+  .kintai_time
+    始業時間
+  ="#{@work_time.start_time.strftime("%H時間%M分")}打刻済み"
+  .kintai_time
+    退勤時間
+  - if @work_time.finish_time.nil?
+    ="打刻なし"
+  - else
+    ="#{@work_time.finish_time.strftime("%H時間%M分")}打刻済み"
+  .kintai_times
+    一日の勤務時間
+  - if @work_time.work_time.nil?
+    ="#{@work_time.work_time.strftime("%H時間%M分")}"
+  .kintai_times
+    休憩時間
+  ="#{@work_time.rest_time.strftime("%H時間%M分")}"
 
 
-= link_to 'Edit', edit_work_time_path(@work_time)
+= link_to 'Edit', edit_user_work_time_path(params[:user_id], @work_time), class: "btn btn-primary"
 \|
-= link_to 'Back', work_times_path
+= link_to 'Back', user_work_times_path(params[:user_id]), class: "btn btn-default"

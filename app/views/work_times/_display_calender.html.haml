@@ -23,4 +23,4 @@
           -@work_times.each do |work_time|
             -if work_time.start_time.month == day.month && work_time.start_time.day == day.day
               %tr
-                %td= work_time.work_time.strftime("%H時間%M分")
+                %td=link_to work_time.work_time.strftime("%H時間%M分"), user_work_time_path(:user_id => current_user.id,:id => work_time)

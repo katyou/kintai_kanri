@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      work_times: ユーザー
+    attributes:
+      work_time: 就業時間
+        start_time: 始業時間
+        finish_time: 終業時間
+        work_time: 勤務時間
+        rest_time: 休憩時間
+        created_at: 現在の日時
+        updated_at: 前回の更新日時
+      work_times: 就業時間
+        start_time: 始業時間
+        finish_time: 終業時間
+        work_time: 勤務時間
+        rest_time: 休憩時間
+        created_at: 現在の日時
+        updated_at: 前回の更新日時

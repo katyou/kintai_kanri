@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email].downcase)
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to work_times_path
+      redirect_to user_work_times_path(current_user)
     else
       flash[:danger] = 'flash'
       render 'new'
@@ -16,6 +16,6 @@ class SessionsController < ApplicationController
 
   def destroy
     @current_user = session[:user_id] = nil
-    redirect_to root_url
+    redirect_to login_path
   end
 end

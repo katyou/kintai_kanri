@@ -27,6 +27,7 @@ class WorkTimesController < ApplicationController
   end
 
   def show
+    @work_time = WorkTime.find(params[:id])
   end
 
   #NOTE rails側ではデータの読み込みしかしないからnewやcreateは不要？

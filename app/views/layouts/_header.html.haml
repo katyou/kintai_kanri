@@ -3,9 +3,10 @@
     .container-fluid
       .collapse.navbar-collapse
         .navbar-header
-          =link_to "IJGN 管理システム", root_path, class: "navbar-brand"
+          .logo_title
+            IJGN 管理システム
         %ul.nav.navbar-nav
-          %li=link_to "勤怠カレンダー", work_times_path, class: "header_fonts"
+          %li=link_to "勤怠カレンダー", user_work_times_path(current_user), class: "header_fonts"
           %li=link_to "#{current_user.name}", user_path(current_user), class: "header_fonts"
           - if current_user.admin?
             %li=link_to "全スタッフ管理", users_path, class: "header_fonts"
