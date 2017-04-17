@@ -3,11 +3,11 @@ class WorkTimesController < ApplicationController
   before_action :set_work_time, only: [:show, :edit, :update, :destroy]
 
   def index
-    @work_times = WorkTime.all
     current_time = Time.now
     #NOTE Timeクラス、DateTimeクラスでeachをするとcan't iterate..とエラー
     @month_first= current_time.beginning_of_month.to_date
     @month_last= current_time.end_of_month.to_date
+    @work_times = WorkTime.get_user(current_user)
   end
 
   def get_next_month

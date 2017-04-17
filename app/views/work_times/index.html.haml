@@ -3,7 +3,7 @@
 .trigger-prev
   =link_to 'prev', get_prev_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
 .trigger-next
-  =link_to 'next', get_next_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
+  =link_to 'next', get_next_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-primary'
 
 .display_work_times
   =render partial: '/work_times/display_calender'

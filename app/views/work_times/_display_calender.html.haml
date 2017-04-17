@@ -17,4 +17,10 @@
       %td{align: 'right'}
         %table
           %tr
-            %td=day.day
+            %td= day.day
+          %tr
+            %td 勤務時間
+          -@work_times.each do |work_time|
+            -if work_time.start_time.month == day.month && work_time.start_time.day == day.day
+              %tr
+                %td= work_time.work_time.strftime("%H時間%M分")
