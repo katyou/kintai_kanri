@@ -11,7 +11,7 @@ ja:
         password_confirmation: 確認用のパスワード
         card: felic認証カード
         card_id: felica認証用カードID
-        role: アカウント権限
+        status: アカウント権限
         sign_in_count: ログイン回数
         current_sign_in_at: 現在のログイン日時
         last_sign_in_at: 前回のログイン日時
@@ -32,7 +32,7 @@ ja:
   # enum_help
   enums:
     user:
-      role:
+      status:
         admin: 管理者
-        staff: スタッフ
-        part_time_job: アルバイト
+        staff: 社員
+        part_time: アルバイト

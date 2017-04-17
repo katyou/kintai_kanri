@@ -15,4 +15,5 @@ class User < ApplicationRecord
   has_secure_password
 
   enum status: {admin: 1, staff: 2, part_time: 3}
+
 end
