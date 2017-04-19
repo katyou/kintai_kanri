@@ -1,9 +1,9 @@
 %h1.heading-month= I18n.l @month_first, format: :only_month
 
 .trigger-prev
-  =link_to 'prev', get_prev_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
+  =link_to '先月', get_prev_month_user_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
 .trigger-next
-  =link_to 'next', get_next_month_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-default'
+  =link_to '翌月', get_next_month_user_work_times_path(current_month: @month_first), remote: true, class: 'btn btn-sm btn-primary'
 
 .display_work_times
   =render partial: '/work_times/display_calender'

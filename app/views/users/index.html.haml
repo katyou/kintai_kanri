@@ -1,13 +1,12 @@
-%h1 Listing users
+%h1 ユーザー一覧
 
 %table
   %thead
     %tr
-      %th Name
-      %th Mail
-      %th Password
-      %th Status
-      %th
+      %th 名前
+      %th メールアドレス
+      %th 権限
+      %th 
       %th
       %th
 
@@ -16,12 +15,11 @@
       %tr
         %td= user.name
         %td= user.email
-        %td= user.password
         %td= user.status
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= link_to '詳細', user, class: "btn btn-default"
+        %td= link_to '編集', edit_user_path(user),  class: "btn btn-default"
+        %td= link_to '削除', user, :method => :delete, :data => { :confirm => '本当に削除してもよろしいですか?' },  class: "btn btn-default"
 
 %br
 
-= link_to 'New User', new_user_path
+= link_to 'New User', new_user_path, class: "btn btn-default"
